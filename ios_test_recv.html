@@ -3,12 +3,11 @@
 <meta charset="utf-8">
 <script language="javascript">
 
-
 function showReceipt()
 {
 	var address = location.href;
 
-	var parameter = address.split("&");
+	var parameter = (address.slice(address.indexOf("?") + 1, address.length)).split("&");
 
 	for(var i = 0; i < parameter.length; i++)
 	{
@@ -17,7 +16,7 @@ function showReceipt()
 }
 </script>
 
-<title>FREEPAY TEST 수신</title>
+<title>모바일 스마트로 TEST 수신</title>
 </head>
 <body onload="showReceipt()">
 </body>
