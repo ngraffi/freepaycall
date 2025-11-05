@@ -8,19 +8,30 @@
 	<script language="javascript">
 		function showReceipt()
 		{
-			var address = location.href;
-		
-			var parameter = (address.slice(address.indexOf("?") + 1, address.length)).split("&");
+			let address = location.href;
+			let parameter = (address.slice(address.indexOf("?") + 1, address.length)).split("&");
+			let message = "";
 		
 			for(var i = 0; i < parameter.length; i++)
 			{
-				document.writeln(parameter[i].split("=")[0] + ', ' + parameter[i].split("=")[1] + '<br>');
+				message += parameter[i].split("=")[0] + ', ' + parameter[i].split("=")[1] + '<br>');
 			}
+
+			let result = document.getElementById("result");
+			result.innerHtml = message;
 		}
 	</script>
 
 </head>
 <body onload="showReceipt()">
+
+	<br>resutlval이 0 이면 정상입니다.</br>
+	
+	<div id="result">
+		
+	</div>
+	
 </body>
 
 </html>
+
