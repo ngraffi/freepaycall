@@ -53,20 +53,43 @@
                 return;
             }
             
-            // let url = `intent://freepaylink?mode=web&trantype=upload_log&catid=${catid.value}/#Intent;scheme=smartroapp;package=com.smartro.secapps.freepay;end`;
-            // let url = `intent://freepaylink/#Intent;scheme=smartroapp;package=com.smartro.secapps.freepay;end`;
             let url = `smartroapp://freepaylink?mode=web&trantype=upload_log&catid=${catid.value}`;
             
             window.open(url);
         }
+
+        function setLog()
+        {
+            const resultURL = "https://ngraffi.github.io/freepaycall/test_pg.recv.html"
+            let useLog = document.getElementById("useLog");
+            let value = "n";
+
+            if(useLog.checked)
+            {
+                value = "y";
+            }
+            
+            let url = `smartroapp://freepaylink?mode=web&trantype=set_log&smtlog=${value}&returnurl=${resultURL}`;
+            window.open(url);
+        }
+
     </script>
 </head>
 <body>
     <br>
     <div>
-        <div class="title">FREEPAY 로그 올리기</div>
+        <div class="title">💻 FREEPAY 로그 올리기</div>
+        <br>
+
         <form>
-            <input type="text" id="catid" maxlength="10" minlength="10" size="20" patten="^[0-9a-zA-Z]{10}$" required placeholder="단말번호 또는 MID 입력"/>
+            <input type="checkbox" id="useLog" title="로그 설정">로그 사용 여부</input>
+            <button type="button" onclick="uploadLog()">설정 하기</button>
+        </form>
+
+        <br>
+
+        <form>
+            <input type="text" id="catid" maxlength="10" minlength="10" size="20" patten="[0-9a-zA-Z]{10}" required placeholder="단말번호 또는 MID 입력" title="영문 또는 숫자 10자리"/>
             <button type="button" onclick="uploadLog()">로그 전송</button>
         </form>
     </div>
