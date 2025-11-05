@@ -1,24 +1,26 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<meta charset="utf-8">
-<script language="javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>FREEPAY 결과 수신</title>
+	
+	<script language="javascript">
+		function showReceipt()
+		{
+			var address = location.href;
+		
+			var parameter = (address.slice(address.indexOf("?") + 1, address.length)).split("&");
+		
+			for(var i = 0; i < parameter.length; i++)
+			{
+				document.writeln(parameter[i].split("=")[0] + ', ' + parameter[i].split("=")[1] + '<br>');
+			}
+		}
+	</script>
 
-
-function showReceipt()
-{
-	var address = location.href;
-
-	var parameter = (address.slice(address.indexOf("?") + 1, address.length)).split("&");
-
-	for(var i = 0; i < parameter.length; i++)
-	{
-		document.writeln(parameter[i].split("=")[0] + ', ' + parameter[i].split("=")[1] + '<br>');
-	}
-}
-</script>
-
-<title>FREEPAY TEST 수신</title>
 </head>
 <body onload="showReceipt()">
 </body>
+
 </html>
